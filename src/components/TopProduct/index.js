@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const TopProduct = async () => {
     const response = await fetch(`https://fakestoreapi.com/products?limit=8`)
@@ -17,9 +18,12 @@ const TopProduct = async () => {
                             />
                         </div>
                         <div className="p-4 rounded-b-lg">
+                            <Link href={`/products/${product.id}`} className="text-2xl font-bold">
                             <p className="text-xl">
                             {product.title.length > 20 ? product.title.slice(0, 20) + "..." : product.title}
                             </p>
+                            </Link>
+                            
                             <p className="text-gray-600">Rp. {product.price}</p>
                         </div>
                     </div>
